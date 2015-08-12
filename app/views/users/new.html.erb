@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= bootstrap_form_for :user, url: user_path  do |f| %>
+      <%= f.text_field :name, placeholder: "Enter first name", icon: "user" %>
+      <%= f.text_field :lastname, placeholder: "Enter last name", icon: "user" %>
+      <%= f.email_field :email, placeholder: "Enter email", icon: "envelope" %>
+      <%= f.phone_field :email, placeholder: "Enter email", icon: "envelope" %>
+      <%= f.password_field :password, placeholder: "Enter Your Password", icon: 'lock' %>
+      <%= f.password_field :password_confirmation, placeholder: "Confirm Password", icon: 'lock' %>
+      <%= f.submit "Sign Up" %>
+    <% end %>
+  </div>
+</div>
