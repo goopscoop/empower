@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <h2>Your current materials</h2>
+      <ul class="list-group">
+    <% @user_materials.each do |m| %>
+        <li class="list-group-item"><a href="/materials/<%= m.id %>"><%= m.title %></a></li>
+    <% end %>
+      </ul>
+  </div>
+</div>
