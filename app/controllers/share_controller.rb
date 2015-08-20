@@ -24,12 +24,6 @@ class ShareController < ApplicationController
 
   private
 
-  def delete_association user,association
-    if association
-      user.materials.delete(association)
-    end
-  end
-
   def get_all_non_associated_users associations
     users = []
     User.find_each do | u |

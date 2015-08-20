@@ -25,6 +25,7 @@
               <td><%= u.email %></td>
               <td>
                 <%= bootstrap_form_tag url: "/users/#{u.id}/share/" do |f| %>
+                  <%= f.hidden_field :material_id, value: "#{@material.id}"%>
                   <%= f.submit "Share", class: "btn btn-success btn-sm"%>
                 <% end %>
               </td>

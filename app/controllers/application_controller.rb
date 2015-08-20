@@ -30,4 +30,10 @@ class ApplicationController < ActionController::Base
     Material.find(id)
   end
 
+  def delete_association user,association
+    if association
+      user.materials.delete(association)
+    end
+  end
+
 end
