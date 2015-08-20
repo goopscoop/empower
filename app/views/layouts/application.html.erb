@@ -7,6 +7,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= include_gon(:init => true) %>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
@@ -27,14 +28,23 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
 
     <ul class="nav navbar-nav navbar-right">
-      <% if @current_user %>
+
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @current_user.name %> <b class="caret"></b></a>
-          <ul class="dropdown-menu">
+          <% if @current_user %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @current_user.name %> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+            <% if @current_user[:kind] == 'admin' %>
+              <li><%= link_to "Materials", materials_path %></li>
+              <li><%= link_to "Users", users_path %></li>
+            <% end %>
+            <% if @current_user[:kind] != 'admin' %>
+              <li><%= link_to "My Materials", user_path %></li>
+            <% end %>
+            <li role="separator" class="divider"></li>
             <li><%= link_to "Log out", logout_path %></li>
+          <% end %>
           </ul>
         </li>
-      <% end %>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>

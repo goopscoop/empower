@@ -1,10 +1,18 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <h1><%= @material.title %></h1>
+    <h1>
+      <%= @material.title %>
+      <% if @current_user[:kind] == 'admin' %>
+       - <%= link_to "Edit", edit_material_path %>
+      <% end %>
+    </h1>
     <span class="label label-default"><%= @material.kind %></span>
     <div class="row">
     <hr>
-      <p><%= @material.body %></p>
+      <div class="froala-view">
+        <%= raw @material.body %>
+      </div>
     </div>
   </div>
 </div>
+

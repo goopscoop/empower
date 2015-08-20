@@ -26,4 +26,8 @@ class ApplicationController < ActionController::Base
     gon.current_user = @current_user
   end
 
+  def get_material_by_id id
+    Material.find(id)
+  end
+
 end

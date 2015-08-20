@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
   delete 'logout' => 'sessions#destroy'
 
-  resources :users
+  resources :users do
+    resources :share, :only => [:create,:destroy,:show]
+  end
+
+  resources :user_admin
   resources :materials
 
   # Example of regular route:

@@ -32,6 +32,13 @@ gem 'flash'
 
 gem 'email_validator'
 
+#wysiwyg by Froala
+gem "wysiwyg-rails"
+
+gem "font-awesome-rails"
+
+gem "sanitize"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

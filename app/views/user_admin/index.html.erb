@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <span class="pull-right"><a href="/users/new"><span class="label label-primary">Add new user</span></a></span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+  <h2>All Users</h2>
+    <table class="table table-striped">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone #</th>
+        <th>Delete? (not yet implemented)</th>
+      </tr>
+      <% @all_users.each do |u| %>
+        <tr>
+          <td><%= u.id %></td>
+          <td><%= u.name %> <%= u.lastname %></td>
+          <td><%= u.email %></td>
+          <td><%= u.phone %></td>
+          <td>delete</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
