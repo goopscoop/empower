@@ -1,15 +1,19 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-6 col-md-offset-3">
     <h1>
-      <%= @material.title %>
+      <%= @material.title %></h1>
       <% if @current_user[:kind] == 'admin' %>
-       - <%= link_to "Edit", edit_material_path %>
+        <p>
+          <%= link_to "Edit", edit_material_path %> |
+          <%= link_to "Manage Access", user_share_path( @current_user.id,@material.id )%> |
+          <%= link_to "View All Materials", materials_path %>
+        </p>
       <% end %>
-    </h1>
+
     <span class="label label-default"><%= @material.kind %></span>
     <div class="row">
     <hr>
-      <div class="froala-view">
+      <div class="froala-view no-select">
         <%= raw @material.body %>
       </div>
     </div>

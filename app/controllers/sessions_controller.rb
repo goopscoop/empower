@@ -6,7 +6,11 @@ class SessionsController < ApplicationController
     if @user
       session[:user_id] = @user.id
       flash[:success] = "Login Successful"
-      redirect_to user_path session[:user_id]
+      if @user.kind == 'admin'
+        redirect_to user_admin_index_path
+      else
+        redirect_to user_path session[:user_id]
+      end
     else
       flash[:danger] = "Credentials Invalid"
       redirect_to root_path

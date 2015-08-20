@@ -24,6 +24,9 @@ class UsersController < ApplicationController
     if @user['id'].nil?
       flash[:danger] = "Error trying to create new login"
       redirect_to root_path
+    elsif current_user.kind == "admin"
+      flash[:success] = "New client account successfully created!."
+      redirect_to user_admin_path @user.id
     else
       flash[:success] = "Account Creation Successful! You may log in now."
       redirect_to root_path
