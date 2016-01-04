@@ -16,9 +16,11 @@ Rails.application.routes.draw do
 
   resources :user_admin
   resources :materials
+  get 'new_pdf' => 'materials#new_pdf'
+  post 'new_pdf' => 'materials#create_pdf'
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+    # get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
