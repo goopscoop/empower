@@ -36,6 +36,7 @@
             <ul class="dropdown-menu">
             <% if @current_user[:kind] == 'admin' %>
               <li><%= link_to "Add New Materials", new_material_path %></li>
+              <li><%= link_to "Add New PDF", new_pdf_path %></li>
               <li><%= link_to "Materials", materials_path %></li>
               <li><%= link_to "Users", user_admin_index_path %></li>
             <% end %>

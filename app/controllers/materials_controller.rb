@@ -16,6 +16,11 @@ class MaterialsController < ApplicationController
     @new_material = Material.new
   end
 
+  def new_pdf
+    is_admin?
+    @new_material = Material.new
+  end
+
   def create
     is_admin?
     created_material = Material.create( material_params )
